@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "551872318965",
+    "project_id": "rwcl-project",
+    "storage_bucket": "rwcl-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551872318965:android:b99f96462e6892f0af64bc",
+        "android_client_info": {
+          "package_name": "com.example.rwcl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551872318965-piirdgp087upn8nqu1q9luvi9uu363jp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwSOv_VAahh85QGbRmMI8H4FEl4DH9m88"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551872318965-piirdgp087upn8nqu1q9luvi9uu363jp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

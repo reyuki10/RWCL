@@ -7,4 +7,6 @@
     <string name="correo">Correo</string>
     <string name="proveedor">Proveedor</string>
     <string name="log_out">Cerrar Sesion</string>
+    <string name="google">Google</string>
+    <string name="prefs_file">com.example.rwcl.PREFERENCE_FILE_KEY</string>
 </resources>

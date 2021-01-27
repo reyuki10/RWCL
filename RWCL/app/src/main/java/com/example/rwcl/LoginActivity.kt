@@ -1,8 +1,10 @@
 package com.example.rwcl
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
@@ -16,11 +18,13 @@ class LoginActivity : AppCompatActivity() {
 
         //Setup
         setup()
+        session()
     }
 
     private fun setup(){
         title = "Autenticación"
 
+        //Registro con email y password
         registerButton.setOnClickListener{
             if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(emailEditText.text.toString(), passwordEditText.text.toString()).addOnCompleteListener {
@@ -34,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
                 showAlert()
             }
         }
-
+        //Login con email y password
         loginButton.setOnClickListener{
             if (emailEditText.text.isNotEmpty() && passwordEditText.text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(emailEditText.text.toString(), passwordEditText.text.toString()).addOnCompleteListener {
@@ -47,6 +51,23 @@ class LoginActivity : AppCompatActivity() {
             }else{
                 showAlert()
             }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        loginLayout.visibility = View.VISIBLE
+    }
+
+    private fun session() {
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = prefs.getString("email", null)
+        val proveedor = prefs.getString("proveedor", null)
+
+        if (email != null && proveedor != null) {
+            loginLayout.visibility = View.INVISIBLE
+            showHome(email, ProviderType.valueOf(proveedor))
         }
     }
 
